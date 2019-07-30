@@ -1,0 +1,12 @@
+<h1>대외활동 같이할 사람 구하는 방 페이지</h1>
+
+<h2>activity list</h2>
+
+{%for activity in my_list%}
+<h2>{{activity.title}}<h4>{{activity.d_day}}</h4></h2> 
+<img src = "https://www.wevity.com/{{activity.img}}">
+
+<p>대외활동 설명 페이지 입니당</p>
+<a href="https://www.wevity.com/{{activity.link}}">clink here!</a>
+
+{%endfor%}

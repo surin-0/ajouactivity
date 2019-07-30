@@ -1,0 +1,112 @@
+<!-- layout인 application.html을 사용하겠다는 선언 -->
+{% extends "layouts/application.html" %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% block content %}
+<section class="content-container">
+  <div class="container py-5">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              #1
+            </button>
+          </h2>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+          <form class="form-inline" name="validation" onSubmit="return check()">
+            <div class="form-group mb-2">
+              <label for="staticEmail2" class="sr-only">Email</label>
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="이메일 인증 : ">
+            </div>
+            <div class="form-group my-2 mb-2">
+              <input type="text" class="form-control" name="emailcheck" placeholder="abc@ajou.ac.kr">
+            </div>
+            <button class="btn btn-primary" type="submit" id="validate">
+              인증
+            </button>
+          </form>
+          <script language="JavaScript1.2">
+          var testresults
+          function checkemail(){
+            var str = document.validation.emailcheck.value
+            var filter = /^([\w-]+(?:\.[\w-]+)*)@(?=ajou.ac.kr$)/
+            if (filter.test(str))
+              testresults = true
+            else {
+              alert("아주대 이메일을 입력해주세요!")
+              testresults = false
+            }
+            return (testresults)
+          }
+          </script>
+          <script>
+          function check(){
+            if (document.layers || document.getElementById || document.all)
+              return checkemail()
+            else
+              return true
+            }
+          </script>
+          <h2 id='result'></h2>
+            <button class="btn btn-primary collapsed mb-2" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              다음
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Collapsible Group Item #2
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            <form method="POST" action="/signup">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="username">ID</label>
+                <input type="text" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="ID">
+                <small id="usernameHelp" class="form-text text-muted">Enter ID</small>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="password_confirm">Password Confirm</label>
+                <input type="password" class="form-control" id="password_confirm" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="nickname">Nickname</label>
+                <input type="text" class="form-control" id="nickname" placeholder="Nickname">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Collapsible Group Item #3
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+

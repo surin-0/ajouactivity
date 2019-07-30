@@ -1,0 +1,209 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+.py-3{
+    position:relative;
+    width:100%;
+    bottom: 0;
+
+}
+
+html{
+    height:100%;
+}
+
+body{
+    height:100%;
+}
+
+/*탭메뉴*/
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  display: block;
+}
+label{
+    width: 200px;
+}
+.tabset > label {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px 25px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabset > label::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 22px;
+  height: 4px;
+  background: #8d8d8d;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label {
+  color: #06c;
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+  background: #06c;
+}
+
+.tabset > input:checked + label {
+  border-color: #ccc;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+.tab-panel {
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+}
+
+.tabset {
+  max-width: 65em;
+}
+/*탭메뉴 끝*/
+
+
+
+
+
+
+.content-container{
+    background-color: rgba(0,0,0,.02);
+    padding-top: 56px;
+    min-height : 100%;
+}
+
+.main-container{
+    width: 100%;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0,0,0,.02);
+}
+
+.wide-carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#mainNav {
+    border-bottom: 1px solid transparent;
+    background: transparent;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    opacity: 0.9;
+    
+ }
+
+.search-bar{
+    border: 3px solid black;
+    border-radius: 7px;
+    width: 100vh;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+.block{
+    display: block !important;
+}
+
+.card-body{
+    padding: 1rem;
+}
+
+.card-shadow{
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.4);
+}
+
+.navbar-brand{
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 1.9rem;
+}
+
+.navbar{
+    padding: 0.2rem 1rem;
+}
+
+.noto-serif{
+    font-family: 'Noto Serif KR', serif;
+}
+
+.mt-6{
+    margin-top: 6rem;
+}
+
+.bg-white{
+    background-color: white;
+}
+
+.bg-grey{
+    background-color: rgba(0,0,0,.02);
+}
+
+
+@font-face { 
+    font-family: 'Daehan'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Daehan.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+    color: black;
+}
+    
+.list-group {
+    font-family: 'Daehan';
+    font-size : 1.0rem;
+}
+
+.input-group {
+    maxlength:"200";
+}
+
+/*페이지 네이션 꾸미기*/
+@font-face { 
+    font-family: 'S-CoreDream-8Heavy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+    
+}
+
+.pagination{
+    font-family: 'S-CoreDream-8Heavy';
+    font-size : 2.0rem;
+    margin-left: 27.0rem;
+}

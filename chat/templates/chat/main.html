@@ -1,0 +1,17 @@
+<div>
+    <div id="chatwindow">
+    {% if chat %}
+        {% for log in chat %}
+            {{ log.name }} : {{ log.chat_text }} </br>
+        {% endfor %}
+    {% endif %}
+    </div>
+    <p id="results"></p>
+    <form action="{% url 'chat:main_page' name %}" id="chatform" method="post">
+        {% csrf_token %}
+        <label for="msg"> Message : </label>
+        <input type="text" id="msg" name="msg">
+        <input type="submit" value="Send message" >
+    </form>
+</div>
+<script type="text/javascript" src="{% static 'chat/mychat.js' %}"></script>

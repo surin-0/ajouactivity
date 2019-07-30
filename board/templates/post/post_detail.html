@@ -1,0 +1,78 @@
+{% extends "layouts/application.html" %}
+
+{% block content %}
+
+<div class="container content-container">
+
+  <div class='main-container'>
+    <h1>POST DETAIL</h1>
+    
+  <!-- Tab -->
+  <div class="tabset">
+  <!-- Tab 1 -->
+  <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+  <label for="tab1">모집 공고</label>
+  <!-- Tab 2 -->
+  <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+  <label for="tab2">대외활동 소개</label>
+  <!-- Tab 3 -->
+  <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+  <label for="tab3">댓글</label>
+  <!-- Tab 4 -->
+  <input type="radio" name="tabset" id="tab4" aria-controls="team">
+  <label for="tab4">팀원모집</label>
+  
+  <!-- Tab Content -->
+  <div class="tab-panels">
+    <!-- Tab 1 Content -->
+    <section id="marzen" class="tab-panel">
+      <h2>대외활동 모집공고 안내</h2>
+      {{ post.company }}<br/>
+      {{ post.created_at }}<br/>
+      {{ post.view }}<br/><br/><br/>
+    </section>
+    
+    <!-- Tab 2 Content -->
+    <section id="rauchbier" class="tab-panel">
+      <h2>대외활동 설명페이지</h2>
+      <p>대외활동 설명 페이지 입니다.</p>
+    </section>
+    
+    <!-- Tab 3 Content -->
+    <section id="dunkles" class="tab-panel">
+    <div class='disqus'>
+      {% load disqus_tags %}
+      {% disqus_show_comments %}
+    </div>
+    </section>
+    
+    <!-- Tab 4 Content -->
+    <section id="team" class="tab-panel">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h2 class="card-title">{{ post.title }}</h2>
+          <p class="card-text">{{ post.description }}</p>
+          <br><a href="{% url 'board:invite_create' post.id %}" class="btn btn-primary">새 팀원 구하기</a></br>
+          <br><a href="#" class="btn btn-primary">Go somewhere</a></br>
+          <br><a href="#" class="btn btn-primary">Go somewhere</a></br>
+        </div>
+      </div>
+      {% for invite in post.invites.all %}
+        <a href="{% url 'board:invite_detail' invite.id %}" >{{ invite.title }}</a>:{{ invite.description }}
+        <a href="{% url 'board:invite_update' invite.id %}">수정하기</a>|
+        <a href="{% url 'board:invite_delete' invite.id %}">삭제하기</a>
+        <br/>
+      {% endfor %}
+    </section>
+    
+  </div>
+  
+</div>
+    
+  <a href="{% url 'board:home' %}">home</a>
+  </div>
+
+</div>
+
+<br/>
+{% endblock %}

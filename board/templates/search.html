@@ -1,0 +1,62 @@
+{% extends "layouts/application.html" %}
+
+{% block content %}
+
+<div class="container content-container">
+    </br>
+    <div class="col-lg-12">
+          <div class="col-lg-12 col-md-12 my-3">
+              <div class="container">
+            <h3 class="noto-serif bold" style= 'text-align:center;'> 원하는 대외활동을 검색하세요!</h3>
+              <div class="row">
+              <div class="input-group my-2 search-bar">
+                <form class="col-lg-12 col-md-12 my-3" action="." method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="button" class="btn btn-dark">submit</button>
+                </form>
+            </div>
+          </div>
+            <hr/>
+          </div>
+        </div>
+        
+        {% if post_list %}
+        
+        <h4>'{{ word }}' 내용을 포함한 대외활동 리스트</h4>
+        <p><a href="{% url 'board:home' %}">모든 대외활동 보러가기</a></p>
+        <br/>
+        <div class="row">
+        {% for post in post_list %}
+          
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-shadow h-100">
+              <a href= "{% url 'board:detail' post.id %}" ><img class="card-img-top" src="https://cf-cpi.campuspick.com/activity/1554192449636785.jpg" alt=""></a>
+              <div class="card-body">
+                <span class="badge badge-pill badge-info">D-{{post.date}}</span>
+                <p class="card-title">
+                  <a href="">{{post.title}}</a>
+                </p>
+                <small>유저아이디</small>
+              </div>
+              <div class="card-footer row mx-0 px-0 py-0">
+                <div class="col">
+                  <small class="card-text text-secondary float-left mt-1"><i class="fas fa-eye"></i>&nbsp;&nbsp;본횟수</small>
+                </div>
+                <div class="col">
+                  <small class="card-text text-secondary float-right mt-1"><i class="fas fa-comment"></i>&nbsp;&nbsp;reply횟수</small>
+                </div>
+              </div>
+            </div>
+         </div>
+        {%endfor%}
+          
+        {% elif word %}
+          
+        <h4>검색하신 '{{ word }}' (이)가 포함된 대외활동이 없습니다.</h4>
+        <p><a href="{% url 'board:home' %}">모든 대외활동 보러가기</a></p>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock %}

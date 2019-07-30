@@ -1,0 +1,34 @@
+
+
+<!--<form action="{ % url "board:invite-detail" object.id % }" method="POST">-->
+<!--{% csrf_token %}-->
+<!--    <input type="submit" value="Comment" class="btn btn-outline-primary">-->
+
+<!--</form>-->
+
+
+
+{{ invite.title }}:{{ invite.description }}<br/>
+
+
+댓글달기</br>
+<form action="{% url 'board:comment_create' invite.pk %}" method="POST" >
+    {% csrf_token %}
+    <input type="text" name="text" placeholder="댓글"/>
+    <input type="submit" value="submit"/>
+</form>
+
+<table class="table table-striped">
+    {% for comment in invite.comments.all %}
+    <tr>
+        <td>{{ comment.author }}</td>
+        <td>{{ comment.text }}</td>
+        <td>{{ comment.created }}</td>
+        <td>{{ comment.updated }}</td>
+        <td>{{ comment.id }}</td>
+        <td><a href="{% url 'board:comment_delete' invite_pk=invite.pk comment_pk=1 %}">삭제하기</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
