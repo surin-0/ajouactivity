@@ -3,7 +3,7 @@ bs4==0.0.1
 certifi==2019.3.9
 chardet==3.0.4
 dj-database-url==0.5.0
-Django==2.2
+Django==2.1
 Faker==2.0.0
 get==2019.3.22
 gunicorn==19.9.0
