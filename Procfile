@@ -1,0 +1,1 @@
+web: gunicorn ajouactivity.wsgi --log-file -
