@@ -36,7 +36,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '^sh@9-k05!&8$ks^pyvpi5_ee5e#!#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = ['ajouactivity-minkj1992.c9users.io']
+ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ['*************.c9users.io']
 # ALLOWED_HOSTS = []
 
