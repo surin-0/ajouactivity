@@ -55,7 +55,7 @@ def find_id():
         url = base_url.format(n)
         webpage = urlopen(url)
         soup = BeautifulSoup(webpage, 'html.parser')
-        for i in range(0,12) :
+        for i in range(0,6) :
             tmp = soup.select('#container > div.content-area > div.content-wrap > div.content > div.ext-area > ul > li> a')[i]
             li = tmp.get('href').split('=')
             id_list.append(li[len(li)-1])
