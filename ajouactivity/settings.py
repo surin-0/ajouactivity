@@ -134,27 +134,38 @@ WSGI_APPLICATION = 'ajouactivity.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'c9',
-    'USER': 'root',
-    'PASSWORD': '',
-    'CHARSET':'utf8mb4',
-    'COLLATION':'utf8_general_ci',
+# DATABASES = {
+#   'default': {
+#     'ENGINE': 'django.db.backends.mysql',
+#     'NAME': 'c9',
+#     'USER': 'root',
+#     'PASSWORD': '',
+#     'CHARSET':'utf8mb4',
+#     'COLLATION':'utf8_general_ci',
 
-    'OPTIONS': {
-      'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#     'OPTIONS': {
+#       'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
       
-    #   (1366, "Incorrect string value: '\\xEB\\x91\\x90\\xEB\\xB2\\x88...' for column 'title' at row 1") 에러 때문에
-    #   'charset': 'utf8mb4',
-    #   'charset': 'utf8',
-    #   'collation':'utf8_general_ci',
-    # 민욱이형 Help,,,
+#     #   (1366, "Incorrect string value: '\\xEB\\x91\\x90\\xEB\\xB2\\x88...' for column 'title' at row 1") 에러 때문에
+#     #   'charset': 'utf8mb4',
+#     #   'charset': 'utf8',
+#     #   'collation':'utf8_general_ci',
+#     # 민욱이형 Help,,,
     
 
-    },
-  }
+#     },
+#   }
+# }
+
+DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'mydatabase',
+    'USER': 'likelion',
+    'PASSWORD': '',
+    'HOST': '127.0.0.1',
+    'PORT': '5432'
+    }
 }
 
 
