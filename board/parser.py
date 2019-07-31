@@ -12,7 +12,6 @@ def parse_activity() :
     base_url = 'https://www.wevity.com/?c=active&s=1&gbn=viewok&gp=1&ix={}'
     
     for n in id_list :
-        flag = False
         url = base_url.format(n)
         webpage = urlopen(url)
         soup = BeautifulSoup(webpage, 'html.parser')
@@ -37,16 +36,8 @@ def parse_activity() :
         for i in my_dcrp :
             tmp_dcrp = tmp_dcrp + i.text + "\n"
         a = Post(title = my_title.text, description = tmp_dcrp, company = my_company, created_at =tmp_day, image = tmp_src)
-        dup = Post.objects.filter(title = my_title.text)
         
-        if(dup):
-            flag = True
-            continue
-        else : 
-            a.save()
-        if(flag):
-            print("flag act")
-            break
+        a.save()
 
 def find_id():
     base_url = 'https://www.wevity.com/?c=active&s=1&gp={}'
