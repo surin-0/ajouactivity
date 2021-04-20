@@ -2,7 +2,7 @@ api==0.0.7
 asgiref==3.2.0
 asn1crypto==0.24.0
 attrs==19.1.0
-autobahn==19.7.2
+autobahn==20.12.3
 Automat==0.7.0
 beautifulsoup4==4.7.1
 bs4==0.0.1
