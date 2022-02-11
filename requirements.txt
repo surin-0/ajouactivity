@@ -43,7 +43,7 @@ six==1.12.0
 soupsieve==1.9
 sqlparse==0.3.0
 text-unidecode==1.2
-Twisted==19.2.1
+Twisted==22.1.0
 txaio==18.8.1
 urllib3==1.24.1
 whitenoise==4.1.3
